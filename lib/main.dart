@@ -9,19 +9,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('Drink Recipes'),
-            centerTitle: true,
-            automaticallyImplyLeading: true,
-            backgroundColor: Color(
-              0xFF949AA2,
-            ),
-          ),
-          body: Column(
-            children: [Text('Drink')],
-          ),
-        ));
+      debugShowCheckedModeBanner: false,
+      title: 'Inventory App',
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+        accentColor: Colors.deepPurpleAccent,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('*Company Name'),
+      ),
+    );
   }
 }
