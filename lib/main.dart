@@ -25,7 +25,36 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('*Company Name'),
+        title: Text('Menu'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
+                child: InkWell(
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 30,
+                        child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: FittedBox(
+                              child: Text('Latte'),
+                            )),
+                      ),
+                      // trailing: IconButton(
+                      //   icon: Icon(Icons.arrow_forward_ios_outlined),
+                      //   color: Colors.black,
+                      //   onPressed: () {},
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+              ),
+            ]),
       ),
     );
   }
