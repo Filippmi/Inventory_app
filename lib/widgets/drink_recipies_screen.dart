@@ -5,7 +5,7 @@ class DrinkRecipiesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Latte'),
+        title: Text('Drink Name'),
       ),
       body: Center(
         child: Text('Recipe'),
