@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class DrinkRecipies extends StatelessWidget {
+class DrinkRecipiesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drink Name'),
+        title: Text('Latte'),
       ),
       body: Center(
         child: Text('Recipe'),

@@ -1,3 +1,4 @@
+import './drink_recipies_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,6 +22,16 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  void selectDrink(BuildContext ctx) {
+    Navigator.of(ctx).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return DrinkRecipiesScreen();
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,32 +40,30 @@ class HomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Container(
-                child: InkWell(
-                  child: Card(
-                    elevation: 5,
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        radius: 30,
-                        child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: FittedBox(
-                              child: Text('Latte'),
-                            )),
-                      ),
-                      // trailing: IconButton(
-                      //   icon: Icon(Icons.arrow_forward_ios_outlined),
-                      //   color: Colors.black,
-                      //   onPressed: () {},
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            InkWell(
+              onTap: () => selectDrink(context),
+              splashColor: Colors.black,
+              child: Container(
+                child: Card(
+                  elevation: 5,
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: FittedBox(
+                            child: Text('Latte'),
+                          )),
                     ),
                   ),
-                  onTap: () {},
                 ),
               ),
-            ]),
+            ),
+          ],
+        ),
       ),
     );
   }
