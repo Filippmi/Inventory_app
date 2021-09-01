@@ -44,12 +44,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _startNewDrink(BuildContext ctx) {
-    showModalBottomSheet(context: ctx, builder: (_) {
-      return GestureDetector(
-        onTap: () {},
-        child: null,
-      );
-    });
+    showModalBottomSheet(
+        context: ctx,
+        builder: (_) {
+          return GestureDetector(
+            onTap: () {},
+            child: null,
+          );
+        });
   }
 
   @override
@@ -69,6 +71,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.grey,
         child: Icon(Icons.add),
         onPressed: () => (context),
       ),
