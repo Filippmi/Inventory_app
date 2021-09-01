@@ -47,9 +47,9 @@ class _HomePageState extends State<HomePage> {
     showModalBottomSheet(context: ctx, builder: (_) {
       return GestureDetector(
         onTap: () {},
-        child:
-      )
-    })
+        child: null,
+      );
+    });
   }
 
   @override
@@ -71,6 +71,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => (context),
+      ),
     );
   }
 }
