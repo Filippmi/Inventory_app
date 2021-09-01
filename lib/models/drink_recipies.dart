@@ -5,8 +5,9 @@ class Recipes {
   final String drinkName;
   final String ingredients;
 
-  Recipes(
-      {@required this.id,
-      @required this.drinkName,
-      @required this.ingredients});
+  Recipes({
+    @required this.id,
+    @required this.drinkName,
+    @required this.ingredients,
+  });
 }
