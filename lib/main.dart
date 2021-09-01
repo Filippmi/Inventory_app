@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/drink_list.dart';
+import './widgets/new_drink.dart';
+import './widgets/drink_list.dart';
 import './models/drink.dart';
 
 void main() {
@@ -53,7 +54,8 @@ class _HomePageState extends State<HomePage> {
         builder: (_) {
           return GestureDetector(
             onTap: () {},
-            child: null,
+            child: NewDrink(),
+            
           );
         });
   }
