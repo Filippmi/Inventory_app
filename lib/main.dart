@@ -1,5 +1,8 @@
-import './drink_recipies_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/drink_list.dart';
+import './models/drink.dart';
+import 'widgets/drink_recipies_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,16 +24,19 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  void selectDrink(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return DrinkRecipiesScreen();
-        },
-      ),
-    );
-  }
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List<Drink> _drinks = [
+    Drink(id: 'd1', name: 'Latte'),
+    Drink(id: 'd2', name: 'Mocha'),
+    Drink(id: 'd3', name: 'Amaricano'),
+    Drink(id: 'd4', name: 'Drip Coffee'),
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,25 +49,7 @@ class HomePage extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            InkWell(
-              onTap: () => selectDrink(context),
-              splashColor: Colors.black,
-              child: Container(
-                child: Card(
-                  elevation: 5,
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      radius: 30,
-                      child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: FittedBox(
-                            child: Text('Latte'),
-                          )),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            DrinkList(_drinks),
           ],
         ),
       ),
