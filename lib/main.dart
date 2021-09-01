@@ -37,7 +37,11 @@ class _HomePageState extends State<HomePage> {
   ];
 
   void _addNewDrink(String newName) {
-    final newDrink = Drink(name: newName, id: DateTime.now().toString());
+    final newDrink = Drink(
+      name: newName,
+      id: DateTime.now().toString(),
+    );
+
     setState(() {
       _userDrinks.add(newDrink);
     });
