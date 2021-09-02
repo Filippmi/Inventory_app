@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.grey,
         child: Icon(Icons.add),
-        onPressed: () => (context),
+        onPressed: () => _startNewDrink(context),
       ),
     );
   }
