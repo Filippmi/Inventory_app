@@ -21,8 +21,9 @@ class _NewDrinkState extends State<NewDrink> {
     widget.addDrink(
       enteredName,
     );
+
+    Navigator.of(context).pop();
   }
-  
 
   @override
   Widget build(BuildContext context) {
