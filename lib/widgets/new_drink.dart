@@ -18,9 +18,9 @@ class _NewDrinkState extends State<NewDrink> {
               decoration: InputDecoration(labelText: 'Drink Name'),
               controller: null,
             ),
-            ElevatedButton(
+            RaisedButton(
               child: Text('Add Drink'),
-              onPressed: null,
+              onPressed: _submitData,
             ),
           ],
         ),
