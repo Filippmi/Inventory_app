@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
       builder: (_) {
         return GestureDetector(
           onTap: () {},
-          child: NewDrink(),
+          child: NewDrink(_addNewDrink),
           behavior: HitTestBehavior.opaque,
         );
       },
