@@ -50,14 +50,15 @@ class _HomePageState extends State<HomePage> {
 
   void _startNewDrink(BuildContext ctx) {
     showModalBottomSheet(
-        context: ctx,
-        builder: (_) {
-          return GestureDetector(
-            onTap: () {},
-            child: NewDrink(),
-            
-          );
-        });
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: NewDrink(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
   }
 
   @override
