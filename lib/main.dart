@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import './widgets/new_drink.dart';
 import './widgets/drink_list.dart';
@@ -63,6 +66,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final PreferredSizeWidget appBar = Platform.isIOS
+        ? CupertinoNavigationBar(
+            middle: Text(
+              'Menu',
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                GestureDetector(
+                  child: Icon(CupertinoIcons.add),
+                  onTap: () => _startNewDrink(context),
+                ),
+              ],
+            ),
+          )
+        : AppBar(
+            title: Text('Menu'),
+          );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Menu'),
