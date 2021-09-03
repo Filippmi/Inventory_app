@@ -1,7 +1,10 @@
-import '../widgets/drink_recipies_screen.dart';
+import 'dart:io';
 
-import '../models/drink.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/drink_recipies_screen.dart';
+import '../models/drink.dart';
 
 class DrinkList extends StatelessWidget {
   final List<Drink> drinks;
@@ -24,23 +27,30 @@ class DrinkList extends StatelessWidget {
       height: 500,
       child: ListView.builder(
           itemBuilder: (ctx, index) {
-            return InkWell(
-              onTap: () => selectDrink(context),
-              splashColor: Colors.black,
-              child: Card(
-                elevation: 5,
-                child: ListTile(
-                  leading: CircleAvatar(
-                    radius: 30,
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: FittedBox(
-                          child: Text('${drinks[index].name}'),
-                        )),
+            final card = Card(
+              elevation: 5,
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                  child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: FittedBox(
+                      child: Text('${drinks[index].name}'),
+                    ),
                   ),
                 ),
               ),
             );
+            return Platform.isIOS
+                ? GestureDetector(
+                    child: card,
+                    onTap: () => selectDrink(context),
+                  )
+                : InkWell(
+                    onTap: () => selectDrink(context),
+                    splashColor: Colors.black,
+                    child: card,
+                  );
           },
           itemCount: drinks.length),
     );
