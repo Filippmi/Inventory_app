@@ -36,14 +36,28 @@ class _NewDrinkState extends State<NewDrink> {
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Drink Name'),
-              controller: _nameController,
+            Platform.isIOS
+                ? CupertinoTextField(
+                    placeholder: 'Drink Name',
+                    controller: _nameController,
+                  )
+                : TextField(
+                    decoration: InputDecoration(labelText: 'Drink Name'),
+                    controller: _nameController,
+                  ),
+            Container(
+              padding: EdgeInsets.all(5),
             ),
-            RaisedButton(
-              child: Text('Add Drink'),
-              onPressed: _submitData,
-            ),
+            Platform.isIOS
+                ? CupertinoButton(
+                    child: Text('Add Drink'),
+                    onPressed: _submitData,
+                    color: Colors.blue,
+                  )
+                : RaisedButton(
+                    child: Text('Add Drink'),
+                    onPressed: _submitData,
+                  ),
           ],
         ),
       ),
