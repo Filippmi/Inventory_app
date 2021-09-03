@@ -84,12 +84,8 @@ class _HomePageState extends State<HomePage> {
         : AppBar(
             title: Text('Menu'),
           );
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Menu'),
-      ),
-      body: SingleChildScrollView(
+    final pageBody = SafeArea(
+      child: SingleChildScrollView(
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -98,12 +94,21 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.grey,
-        child: Icon(Icons.add),
-        onPressed: () => _startNewDrink(context),
-      ),
     );
+    return Platform.isIOS
+        ? CupertinoPageScaffold(child: pageBody, navigationBar: appBar)
+        : Scaffold(
+            appBar: appBar,
+            body: pageBody,
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+            floatingActionButton: Platform.isIOS
+                ? Container()
+                : FloatingActionButton(
+                    backgroundColor: Colors.grey,
+                    child: Icon(Icons.add),
+                    onPressed: () => _startNewDrink(context),
+                  ),
+          );
   }
 }
