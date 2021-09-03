@@ -45,7 +45,7 @@ class _NewDrinkState extends State<NewDrink> {
                     decoration: InputDecoration(labelText: 'Drink Name'),
                     controller: _nameController,
                   ),
-            Container(
+            Padding(
               padding: EdgeInsets.all(5),
             ),
             Platform.isIOS
