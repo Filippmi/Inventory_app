@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import './models/ingredient.dart';
 import './widgets/new_drink.dart';
 import './widgets/drink_list.dart';
 import './models/drink.dart';
@@ -34,10 +35,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Drink> _userDrinks = [
-    Drink(id: 'd1', name: 'Latte'),
-    Drink(id: 'd2', name: 'Mocha'),
-    Drink(id: 'd3', name: 'Amaricano'),
-    Drink(id: 'd4', name: 'Drip Coffee'),
+    Drink(id: 'd1', name: 'Latte', Ingredient: Ingredient),
+    Drink(id: 'd2', name: 'Mocha', Ingredient: null),
+    Drink(id: 'd3', name: 'Amaricano', Ingredient: null),
+    Drink(id: 'd4', name: 'Drip Coffee', Ingredient: null),
   ];
 
   void _addNewDrink(String newName) {
